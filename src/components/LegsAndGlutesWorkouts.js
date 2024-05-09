@@ -8,39 +8,49 @@ import Col from 'react-bootstrap/Col';
 import Ratio from 'react-bootstrap/Ratio';
 
 const Stretch = ({heading, src}) => {
-    return(
-    <Col xl={6} lg={6} xs={12} md={6} sm={12}>
-        <h6><b>{heading}</b></h6>
-        <Ratio aspectRatio="16x9">
-            <iframe loading='lazy' src={`https://www.youtube-nocookie.com/embed/${src}`} title='Youtube Video' allowFullScreen></iframe>
-        </Ratio>
-        <br />
-    </Col>
-    )
+    try {
+        return(
+            <Col xl={6} lg={6} xs={12} md={6} sm={12}>
+                <h6><b>{heading}</b></h6>
+                <Ratio aspectRatio="16x9">
+                    <iframe aria-label='YouTube Video' loading='lazy' src={`https://www.youtube-nocookie.com/embed/${src}`} title='Youtube Video' allowFullScreen></iframe>
+                </Ratio>
+                <br />
+            </Col>
+        );
+    } catch (error) {
+        console.error('Error loading YouTube video:', error);
+        return <div aria-live='polite' className='subheading'>Error loading video. Please try again later.</div>;
+    }
 };
 
 const Exercise = ({heading1, heading2, src1, src2}) => {
-    return(
-       <Row>
-           <Col xl={5} lg={5} xs={12} md={5} sm={12}>
-                <h6><b>{heading1}</b></h6>
-                <Ratio aspectRatio="16x9">
-                    <iframe loading='lazy' src={`https://www.youtube-nocookie.com/embed/${src1}`} title='Youtube Video' allowFullScreen></iframe>
-                </Ratio>
-                <br />
-            </Col>
-            <Col xl={2} lg={2} xs={12} md={2} sm={12}>
-                <h3 className="subheading">OR</h3>
-            </Col>
-            <Col xl={5} lg={5} xs={12} md={5} sm={12}>
-                <h6><b>{heading2}</b></h6>
-                <Ratio aspectRatio="16x9">
-                    <iframe loading='lazy' src={`https://www.youtube-nocookie.com/embed/${src2}`} title='Youtube Video' allowFullScreen></iframe>
-                </Ratio>
-                <br />
-            </Col>
-       </Row>
-    )
+    try {
+        return(
+            <Row>
+                <Col xl={5} lg={5} xs={12} md={5} sm={12}>
+                     <h6><b>{heading1}</b></h6>
+                     <Ratio aspectRatio="16x9">
+                         <iframe aria-label='YouTube Video' loading='lazy' src={`https://www.youtube-nocookie.com/embed/${src1}`} title='Youtube Video' allowFullScreen></iframe>
+                     </Ratio>
+                     <br />
+                 </Col>
+                 <Col xl={2} lg={2} xs={12} md={2} sm={12}>
+                     <h3 className="subheading">OR</h3>
+                 </Col>
+                 <Col xl={5} lg={5} xs={12} md={5} sm={12}>
+                     <h6><b>{heading2}</b></h6>
+                     <Ratio aspectRatio="16x9">
+                         <iframe aria-label='YouTube Video' loading='lazy' src={`https://www.youtube-nocookie.com/embed/${src2}`} title='Youtube Video' allowFullScreen></iframe>
+                     </Ratio>
+                     <br />
+                 </Col>
+            </Row>
+        )
+    } catch (error) {
+        console.error('Error loading YouTube video:', error);
+        return <div aria-live='polite' className='subheading'>Error loading video. Please try again later.</div>;
+    }
 };
 
 const LegsAndGlutesWorkouts = () => {
@@ -108,7 +118,7 @@ const LegsAndGlutesWorkouts = () => {
                     src="uuVyVuSbXrA"
                     />
                     <Stretch
-                    heading="Hip Flexor Stretch :"
+                    heading="Hip Flexor :"
                     src="nMp3MlTz9fA"
                     />
                 </Row>

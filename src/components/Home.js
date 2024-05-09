@@ -49,12 +49,12 @@ const Home = () => {
                     </li>
                 </ul>
                 <h3 className="playball">Get Fit, Stay Healthy</h3>
-                <Link to="/workouts"><ButtonComponent text="Workouts" /></Link>
+                <Link to="/workouts"><ButtonComponent data-testid='Workouts' text="Workouts" /></Link>
             </div>
             <div className="section1">
                 <h3 className="subheading">WELCOME TO ACTI FITNESS</h3>
                 <p className="paragraph">At Acti Fitness, we believe that fitness is not just about exercise; it's a lifestyle. Our mission is to empower individuals to lead a healthier, more active lives by providing them with the tools, guidanve and support they need to achieve their fitness goals.</p>
-                <Link to="/about"><ButtonComponent text="About" /></Link>
+                <Link to="/about"><ButtonComponent data-testid='About' text="About" /></Link>
             </div>
             <div className="section2">
             <Container>
@@ -68,12 +68,12 @@ const Home = () => {
                     </Col>
                 </Row>
             </Container>
-            <Link to="/meals"><ButtonComponent text="Meals" /></Link>
+            <Link to="/meals"><ButtonComponent data-testid='Meals' text="Meals" /></Link>
             </div>
             <div className="section1">
                 <h3 className="subheading">WORKOUTS</h3>
                 <p className="paragraph">Here are the categories of exercises based on the part of the body you are training. Whether you're targeting specific muscle groups or aiming for a full-body workout, we've got you covered. Explore exercises for the Upper Body, Legs and Glutes, Cardio and Core, and Full Body High-Intensity Interval Training (HIIT). You have the freedom to create your own routine tailored to your fitness goals and preferences. If you prefer a more organized approach, head to the Workout section where you'll find pre-designed routines and plans to help you achieve your fitness goals efficiently and effectively.</p>
-                <Link to="/workouts"><ButtonComponent text="Workouts" /></Link>
+                <Link to="/workouts"><ButtonComponent data-testid='Workouts' text="Workouts" /></Link>
             </div>
             <div className="section1">
             <Container>

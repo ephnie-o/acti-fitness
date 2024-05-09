@@ -4,15 +4,20 @@ import Col from 'react-bootstrap/Col';
 import Ratio from 'react-bootstrap/Ratio';
 
 const Exercise = ({heading, src}) => {
-    return(
-    <Col xl={6} lg={6} xs={12} md={6} sm={12}>
-        <h6><b>{heading}</b></h6>
-        <Ratio aspectRatio="16x9">
-            <iframe loading='lazy' src={`https://www.youtube-nocookie.com/embed/${src}`} title='Youtube Shorts' allowFullScreen></iframe>
-        </Ratio>
-        <br />
-    </Col>
-    )
+    try {
+        return(
+            <Col xl={6} lg={6} xs={12} md={6} sm={12}>
+                <h6><b>{heading}</b></h6>
+                <Ratio aspectRatio="16x9">
+                    <iframe aria-label='YouTube Video' loading='lazy' src={`https://www.youtube-nocookie.com/embed/${src}`} title='Youtube Video' allowFullScreen></iframe>
+                </Ratio>
+                <br />
+            </Col>
+        )
+    } catch (error) {
+        console.error('Error loading YouTube video:', error);
+        return <div aria-live='polite' className='subheading'>Error loading video. Please try again later.</div>;
+    }
 };
 
 const WarmUp = () => {

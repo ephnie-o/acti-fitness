@@ -8,15 +8,20 @@ import Col from 'react-bootstrap/Col';
 import Ratio from 'react-bootstrap/Ratio';
 
 const Exercise = ({heading, src}) => {
-    return(
-    <Col xl={6} lg={6} xs={12} md={6} sm={12}>
-        <h6><b>{heading}</b></h6>
-        <Ratio aspectRatio="16x9">
-            <iframe loading='lazy' src={`https://www.youtube-nocookie.com/embed/${src}`} title='Youtube Video' allowFullScreen></iframe>
-        </Ratio>
-        <br />
-    </Col>
-    )
+    try {
+        return(
+            <Col xl={6} lg={6} xs={12} md={6} sm={12}>
+                <h6><b>{heading}</b></h6>
+                <Ratio aspectRatio="16x9">
+                    <iframe aria-label='YouTube Video' loading='lazy' src={`https://www.youtube-nocookie.com/embed/${src}`} title='Youtube Video' allowFullScreen></iframe>
+                </Ratio>
+                <br />
+            </Col>
+        );
+    } catch (error) {
+        console.error('Error loading YouTube video:', error);
+        return <div className='subheading' aria-live='polite'>Error loading video. Please try again later.</div>;
+    }
 };
 
 const CardioAndCoreWorkouts = () => {
@@ -80,7 +85,9 @@ const CardioAndCoreWorkouts = () => {
                     />
                 </Row>
                 <Row>
-                    <Col xl={6} lg={6} xs={12} md={6} sm={12}><p className="paragraph">For the Cardio, choose any activity that you enjoy, such as running, cycling or jumping rope. Aim for 20 - 30 minutes of continuous cardio to get your heart rate up and burn calories.</p></Col>
+                    <Col xl={6} lg={6} xs={12} md={6} sm={12}>
+                        <p className="paragraph">For the Cardio, choose any activity that you enjoy, such as running, cycling or jumping rope. Aim for 20 - 30 minutes of continuous cardio to get your heart rate up and burn calories.</p>
+                    </Col>
                     <Exercise
                     heading='11. Cardiovascular Exercise : 20 - 30 mins :'
                     src="zzY5KD8Cfwg"

@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 
-const mealsData = [
+export const mealsData = [
     {
         id: 1,
         title : "Fresh Fruits :",
@@ -50,7 +50,7 @@ const Snack = () => {
                                     <p className='paragraph'>{meals.description}</p>
                                 </Col>
                                 <Col xl={6} lg={6} xs={12} md={12} sm={12}>
-                                    <Image loading='lazy' width='100%' src={meals.image} rounded />
+                                    <Image alt={meals.title} loading='lazy' width='100%' src={meals.image} rounded />
                                 </Col>
                             </Row>
                             <br />

@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Ratio from 'react-bootstrap/Ratio';
 
-const mealsData = [
+export const mealsData = [
     {
         id: 1,
         title : "Scrambled Eggs :",
@@ -95,7 +95,14 @@ const Breakfast = () => {
                                 </Col>
                                 <Col xl={6} lg={6} xs={12} md={12} sm={12}>
                                 <Ratio aspectRatio="16x9">
-                                    <iframe loading='lazy' src={`https://www.youtube-nocookie.com/embed/${meals.src}`} title='Youtube Video' allowFullScreen></iframe>
+                                    {(() => {
+                                        try {
+                                            return <iframe aria-label='YouTube Video' loading='lazy' src={`https://www.youtube-nocookie.com/embed/${meals.src}`} title={`Youtube Video ${meals.id}`} allowFullScreen></iframe>;
+                                        } catch (error) {
+                                            console.error('Error loading YouTube video:', error);
+                                            return <div className='subheading' aria-live='polite'>Error loading video. Please try again later.</div>;
+                                        }
+                                    })()}
                                 </Ratio>
                                 </Col>
                             </Row>
